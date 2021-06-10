@@ -13,5 +13,5 @@ const getFloatNumberInRange = (min, max, decimaPlaces) => {
   if (min >= 0 && max >= 0 && min < max) {
     return ((Math.random() * (max - min + 1)) + min).toFixed(decimaPlaces);
   }
-}
+};
 getFloatNumberInRange();
