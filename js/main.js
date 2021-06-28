@@ -67,8 +67,6 @@ const DESCRIPTIONS = [
   'А это общежитие студентов. Ничего интересного',
 ];
 
-
-
 const PHOTO_URLS = [
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/duonguyen-8LrGtIxxa4w.jpg',
   'https://assets.htmlacademy.ru/content/intensive/javascript-1/keksobooking/brandon-hoogenboom-SNxQGWxZQi0.jpg',
