@@ -75,13 +75,13 @@ const PHOTO_URLS = [
 
 const getRandomData = (arrayName) => arrayName[Math.floor(Math.random() * arrayName.length)];
 
-
 const generateRandomNumber = (min = MIN_STEP_VALUE, max = MAX_STEP_VALUE) => Math.ceil((Math.random() * (max - min)) + min);
 
 const generateRandomNumberFloat = (min = MIN_STEP_VALUE, max = MAX_STEP_VALUE, numberFloat = NUMBER_FLOAT_VALUE) => {
   const result = Math.random() * (max - min) + min;
   return result.toFixed(numberFloat);
 };
+
 const getRandomNumber = (min = MIN_STEP_VALUE, max = MAX_STEP_VALUE, numberFloat = NUMBER_FLOAT_VALUE) => {
   if (min < 0 || max < 0) {
     return 'Числа не должны быть отрицательные';
@@ -98,6 +98,19 @@ const getRandomNumber = (min = MIN_STEP_VALUE, max = MAX_STEP_VALUE, numberFloat
 };
 
 getRandomNumber();
+
+const getRandomArrayData = (array) => {
+  const arrayCopy = array.slice();
+  const randomQuantity = getRandomNumber(1, array.length);
+  const randomArrayElements = [];
+  while (randomArrayElements.length < randomQuantity) {
+    const randomIndex = getRandomNumber(0, arrayCopy.length - 1);
+    const randomElement = arrayCopy[randomIndex];
+    randomArrayElements.push(randomElement);
+    arrayCopy.splice(randomIndex, 1);
+  }
+  return randomArrayElements;
+};
 
 const createArrayWithData = (amountArray = ARRAY_DATA_AMOUNT) => {
   const array = [];
@@ -123,9 +136,9 @@ const createArrayWithData = (amountArray = ARRAY_DATA_AMOUNT) => {
           guests: getRandomData(AMOUNT_GUEST),
           checkin: getRandomData(TIME),
           checkout: getRandomData(TIME),
-          features: getRandomData(FEATURES),
+          features: getRandomArrayData(FEATURES),
           descriptions: getRandomData(DESCRIPTIONS),
-          photos: getRandomData(PHOTO_URLS),
+          photos: getRandomArrayData(PHOTO_URLS),
         },
       },
     );
@@ -134,3 +147,5 @@ const createArrayWithData = (amountArray = ARRAY_DATA_AMOUNT) => {
 };
 
 createArrayWithData();
+
+console.log(createArrayWithData());
