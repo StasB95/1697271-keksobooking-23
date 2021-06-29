@@ -147,5 +147,3 @@ const createArrayWithData = (amountArray = ARRAY_DATA_AMOUNT) => {
 };
 
 createArrayWithData();
-
-console.log(createArrayWithData());
